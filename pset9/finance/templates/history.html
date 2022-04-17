@@ -1,0 +1,73 @@
+{% extends "layout.html" %} {% block title %}History{% endblock %} {% block main %}
+
+<h3>Your account history</h3>
+<br>
+<hr>
+<br>
+<div class="section" style="position: relative; position: relative; 
+left: 50%;
+transform: translateX(-50%);">
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Operation</th>
+                <th>Stock</th>
+                <th>Units</th>
+                <th>At Price</th>
+                <th>Total</th>
+                <th>Commission</th>
+
+            </tr>
+
+        </thead>
+        {% for i in history %}
+
+        <tbody>
+            <tr>
+                <td>{{i["date"]}}</td>
+                <td>{{i["operation"]}}</td>
+                <td>{{i["symbol"]}}</td>
+                <td>{{i["quantity"]}}</td>
+                <td>{{"$%.2f"|format(i["price"])}}</td>
+                {% if i["operation"] == 'sell'%}
+                <td style="color:rgb(0, 129, 0);">{{"$%.2f"|format(i["total"])}}</td>
+                {% endif %} {% if i["operation"] == 'buy'%}
+                <td style="color:rgb(185, 0, 0);">{{"$%.2f"|format(i["total"])}}</td>
+                {% endif %}
+                <td style="color:rgb(185, 0, 0);">{{"$%.2f"|format(i["commission"])}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <br> {% if adm_history|length > 1 %}
+
+    <h5>Commission Profits</h5>
+    <br>
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>User</th>
+                <th>Operation</th>
+                <th>Stock</th>
+                <th>Total</th>
+                <th>Commission</th>
+            </tr>
+        </thead>
+        {% for i in adm_history %}
+        <tbody>
+            <tr>
+                <td>{{i["date"]}}</td>
+                <td>{{i["user_id"]}}</td>
+                <td>{{i["operation"]}}</td>
+                <td>{{i["symbol"]}}</td>
+                <td>{{"$%.2f"|format(i["total"])}}</td>
+                <td style="color:rgb(10, 121, 0);">{{"$%.2f"|format(i["commission"])}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+<br> {% endblock %}

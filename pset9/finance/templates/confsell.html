@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block title %} Sell {% endblock %} {% block main %}
+
+<hr>
+<div class="section" style="position: fixed; left: 50%;
+transform: translateX(-50%);">
+
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in stocks %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.price }}</td>
+                <td>{{ quantity }}</td>
+                <td>{{ "$%.2f"|format(total) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <form action="/confsell" method="POST" autocomplete="off" autocorrect="off">
+        <button method="POST" autocomplete="off" autocorrect="off" class="btn btn-primary" type="submit" style="background-color: #ea433b; border-color:aliceblue">Confirm Sell Order</button>
+    </form>
+</div>
+<br> {% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main %}
+
+<h3>Oh, hi, {{name}}! Value of your portfolio is {{ "$%.2f"|format(total) }}</h3>
+<br>
+<hr>
+<br>
+<div class="section" style="position: fixed; left: 50%;
+transform: translateX(-50%);">
+    <table class="zui-table">
+        <thead>
+
+
+            <tr>
+                <th>Name</th>
+                <th>Units</th>
+                <th>Last Price</th>
+                <th>Estimated Value (USD)</th>
+            </tr>
+
+        </thead>
+        {% for i in portfolio[0] %} {% if portfolio[0][i] > 0 %}
+
+        <tbody>
+            <tr>
+                {% if i == 'cash' %}
+                <th>Cash</th>
+                <td>{{"%.2f"|format(portfolio[0][i])}}</td>
+                {% endif %} {% if i != 'cash' %}
+                <th>{{ i }}</th>
+                <td>{{portfolio[0][i]}}</td>
+                {% endif %}
+                <td>{{"$%.2f"|format(prices[loop.index-1])}}</td>
+                <td>{{"$%.2f"|format(values[loop.index-1])}}</td>
+            </tr>
+            {% endif %} {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <form action="/rel_index" method="POST">
+        <button name="rel" value="rell" class="btn btn-primary" type="submit" style="background-color: #3e438f; border-color:aliceblue">Reload All Stocks Data</button>
+    </form>
+</div>
+{% endblock %}
