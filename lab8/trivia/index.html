@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let correct = document.querySelector('.correct');
+            correct.addEventListener('click', function() {
+                correct.style.backgroundColor = 'green';
+                document.querySelector('#feedback1').innerHTML = 'Correct!';
+            })
+            let incorrects = document.querySelectorAll('.incorrect');
+            for (let i = 0; i < incorrects.length; i++) {
+                incorrects[i].addEventListener('click', function() {
+                    incorrects[i].style.backgroundColor = 'red';
+                    document.querySelector('#feedback1').innerHTML = 'Wrong!';
+                });
+            }
+            document.querySelector('#check').addEventListener('click', function() {
+                let input = document.querySelector('#input');
+                if (input.value.toLowerCase() === 'black') {
+                    input.style.backgroundColor = 'green';
+                    document.querySelector('#feedback2').innerHTML = 'Correct!'
+                } else {
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#feedback2').innerHTML = 'Wrong!'
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>Who's the best actress?</h3>
+
+            <button class="incorrect"><img src="./nina.png" alt="" height="100"><br>Nina Dobrev</button>
+            <button class="incorrect"><img src="./t-bells.jpeg" alt="" height="100"><br>Troian Bellasario</button>
+            <button class="correct"><img src="./sara.jpg" alt="" height="100"><br>Sara Thompson</button>
+            <p id="feedback1"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Best color:</h3>
+            <input type="text" id="input">
+            <button id="check">Check</button>
+
+            <p id="feedback2"></p>
+        </div>
+    </div>
+</body>
+
+</html>

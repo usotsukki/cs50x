@@ -1,0 +1,144 @@
+sort1 uses: bubble search
+
+How do you know?: because in best case(sorted) it is significantly faster
+
+sort2 uses: merge search
+
+How do you know?: because in all cases it is roughly equally effective and is a lot faster than sort3
+
+sort3 uses: selection search
+
+How do you know?: the last one left, but also because it showes similar results for all cases but is slower than sort2
+
+
+
+
+
+
+
+/*
+                                                        results
+                        sort1 (in order)
+//
+real    0m0.114s
+user    0m0.058s
+sys     0m0.008s
+//
+real    0m0.529s
+user    0m0.241s
+sys     0m0.012s
+//
+real    0m16.915s
+user    0m6.713s
+sys     0m0.096s
+//
+real    0m0.057s
+user    0m0.049s
+sys     0m0.008s
+//
+real    0m0.430s
+user    0m0.198s
+sys     0m0.028s
+//
+real    0m13.064s
+user    0m5.018s
+sys     0m0.112s
+//
+real    0m0.010s
+user    0m0.000s
+sys     0m0.010s
+//
+real    0m0.021s
+user    0m0.004s
+sys     0m0.017s
+//
+real    0m2.364s
+user    0m0.028s
+sys     0m0.060s
+
+                        sort2
+
+//
+real    0m0.013s
+user    0m0.008s
+sys     0m0.004s
+//
+real    0m0.020s
+user    0m0.004s
+sys     0m0.016s
+//
+real    0m2.369s
+user    0m0.033s
+sys     0m0.095s
+//
+real    0m0.011s
+user    0m0.005s
+sys     0m0.005s
+//
+real    0m0.021s
+user    0m0.004s
+sys     0m0.017s
+//
+real    0m2.703s
+user    0m0.032s
+sys     0m0.073s
+//
+real    0m0.013s
+user    0m0.000s
+sys     0m0.013s
+//
+real    0m0.076s
+user    0m0.000s
+sys     0m0.020s
+//
+real    0m4.745s
+user    0m0.031s
+sys     0m0.090s
+
+                        sort3
+//sort3 rand5000
+real    0m0.038s
+user    0m0.029s
+sys     0m0.004s
+
+// sort3 rand10000
+real    0m0.556s
+user    0m0.103s
+sys     0m0.020s
+
+//sort3 rand50000
+real    0m9.246s
+user    0m2.587s
+sys     0m0.080s
+
+//sort3 reversed5000.
+real    0m0.036s
+user    0m0.028s
+sys     0m0.008s
+
+//sort3 reversed10000
+real    0m0.259s
+user    0m0.106s
+sys     0m0.021s
+
+//sort3 reversed50000
+real    0m8.940s
+user    0m2.793s
+sys     0m0.100s
+
+//sort3 sorted5000
+real    0m0.058s
+user    0m0.029s
+sys     0m0.013s
+
+//sort3 sorted10000
+real    0m0.242s
+user    0m0.105s
+sys     0m0.017s
+
+//sort3 sorted50000
+real    0m8.168s
+user    0m2.551s
+sys     0m0.100s
+
+*/
